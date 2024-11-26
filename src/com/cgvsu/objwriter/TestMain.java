@@ -1,11 +1,10 @@
-package com.cgvsu;
+package com.cgvsu.objwriter;
 
 import com.cgvsu.math.Vector2f;
 import com.cgvsu.math.Vector3f;
 import com.cgvsu.model.Model;
 import com.cgvsu.model.Polygon;
 import com.cgvsu.objreader.ObjReader;
-import com.cgvsu.objwriter.ObjWriter;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +13,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Main {
+public class TestMain {
     public static void main(String[] args) throws IOException {
         Model model1 = new Model();
         model1.vertices = new ArrayList<>(Arrays.asList(
@@ -42,19 +41,15 @@ public class Main {
 
         String filename = "test1.obj";
 
-        // запись модели в файл
-        ObjWriter objWriter = new ObjWriter();
+        ObjWriterClass objWriter = new ObjWriterClass();
         objWriter.write(model1, filename);
         File file = new File(filename);
 
-        Path fileName = Path.of("D:\\task-3\\task-3\\test1.obj");
+        Path fileName = Path.of("D:\\task-3\\CG-task3\\test1.obj");
         String fileContent = Files.readString(fileName);
 
-        // Считываем содержимое файла
         System.out.println("Model " + filename + ":");
         Model model = ObjReader.read(fileContent);
-
-        // Выводим содержимое модели в консоль
 
         System.out.println("Vertices: " + model.getVertices().size());
         System.out.println("Texture vertices: " + model.getTextureVertices().size());

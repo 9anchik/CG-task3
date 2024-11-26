@@ -11,4 +11,5 @@ public interface Model {
     List<Vector2f> getTextureVertices();
     List<Vector3f> getNormals();
     List<Polygon> getPolygons();
+
 }

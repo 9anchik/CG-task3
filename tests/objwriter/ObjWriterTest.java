@@ -4,7 +4,7 @@ import com.cgvsu.math.Vector2f;
 import com.cgvsu.math.Vector3f;
 import com.cgvsu.model.Model;
 import com.cgvsu.model.Polygon;
-import com.cgvsu.objwriter.ObjWriter;
+import com.cgvsu.objwriter.ObjWriterClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -18,8 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class ObjWriterTests {
-
-    private final ObjWriter objWriter = new ObjWriter();
+    private final ObjWriterClass objWriter = new ObjWriterClass();
 
     // Тест вершин
     @ParameterizedTest
@@ -124,7 +123,7 @@ class ObjWriterTests {
         ));
 
         String filename = "test.obj";
-        ObjWriter objWriter = new ObjWriter();
+        ObjWriterClass objWriter = new ObjWriterClass();
         objWriter.write(model, filename);
 
         List<String> fileLines = Files.readAllLines(Paths.get(filename));
